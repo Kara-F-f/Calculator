@@ -48,7 +48,13 @@ let operatorButtons = [];
 const operatorParent = document.querySelector('.column4');
 const operatorSet = operatorParent.querySelectorAll('div');
 operatorSet.forEach(item => 
-    item.addEventListener('click', () => {   
+    item.addEventListener('click', () => { 
+        if (num1 && num2 && operator) {
+            result = operate(operator, num1, num2);
+            input.textContent = Number(result.toString().slice(0, 15));
+            num1 = result;
+            num2 = 0;
+        };  
         return operator = item.className;
     }));
 
